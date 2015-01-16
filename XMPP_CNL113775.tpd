@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (c) 2014 Ericsson
+
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+
+   File:               XMPP_CNL113775.tpd
+   Description:        tpd project file
+   Rev:                R3A
+   Prodnr:             CNL 113 775
+
+ -->
+<TITAN_Project_File_Information version="1.0">
+  <ProjectName>XMPP_CNL113775</ProjectName>
+  <ReferencedProjects>
+    <ReferencedProject name="ProtocolModules_Common" projectLocationURI="../COMMON/ProtocolModules_Common.tpd"/>
+  </ReferencedProjects>
+  <Files>
+    <FileResource projectRelativePath="http_etherx_jabber_org_streams.ttcn" relativeURI="src/http_etherx_jabber_org_streams.ttcn"/>
+    <FileResource projectRelativePath="http_jabber_org_protocol_disco_info.ttcn" relativeURI="src/http_jabber_org_protocol_disco_info.ttcn"/>
+    <FileResource projectRelativePath="http_jabber_org_protocol_disco_items.ttcn" relativeURI="src/http_jabber_org_protocol_disco_items.ttcn"/>
+    <FileResource projectRelativePath="http_jabber_org_protocol_pubsub.ttcn" relativeURI="src/http_jabber_org_protocol_pubsub.ttcn"/>
+    <FileResource projectRelativePath="http_jabber_org_protocol_pubsub_errors.ttcn" relativeURI="src/http_jabber_org_protocol_pubsub_errors.ttcn"/>
+    <FileResource projectRelativePath="http_jabber_org_protocol_pubsub_event.ttcn" relativeURI="src/http_jabber_org_protocol_pubsub_event.ttcn"/>
+    <FileResource projectRelativePath="http_jabber_org_protocol_pubsub_owner.ttcn" relativeURI="src/http_jabber_org_protocol_pubsub_owner.ttcn"/>
+    <FileResource projectRelativePath="jabber_client.ttcn" relativeURI="src/jabber_client.ttcn"/>
+    <FileResource projectRelativePath="jabber_iq_auth.ttcn" relativeURI="src/jabber_iq_auth.ttcn"/>
+    <FileResource projectRelativePath="jabber_server.ttcn" relativeURI="src/jabber_server.ttcn"/>
+    <FileResource projectRelativePath="jabber_x_data.ttcn" relativeURI="src/jabber_x_data.ttcn"/>
+    <FileResource projectRelativePath="urn_ietf_params_xml_ns_xmpp_bind.ttcn" relativeURI="src/urn_ietf_params_xml_ns_xmpp_bind.ttcn"/>
+    <FileResource projectRelativePath="urn_ietf_params_xml_ns_xmpp_sasl.ttcn" relativeURI="src/urn_ietf_params_xml_ns_xmpp_sasl.ttcn"/>
+    <FileResource projectRelativePath="urn_ietf_params_xml_ns_xmpp_stanzas.ttcn" relativeURI="src/urn_ietf_params_xml_ns_xmpp_stanzas.ttcn"/>
+    <FileResource projectRelativePath="urn_ietf_params_xml_ns_xmpp_streams.ttcn" relativeURI="src/urn_ietf_params_xml_ns_xmpp_streams.ttcn"/>
+    <FileResource projectRelativePath="urn_ietf_params_xml_ns_xmpp_tls.ttcn" relativeURI="src/urn_ietf_params_xml_ns_xmpp_tls.ttcn"/>
+  </Files>
+  <ActiveConfiguration>Default</ActiveConfiguration>
+  <Configurations>
+    <Configuration name="Default">
+      <ProjectProperties>
+        <MakefileSettings>
+          <GNUMake>true</GNUMake>
+          <targetExecutable>bin/XMPP_CNL113775</targetExecutable>
+          <buildLevel>Level 3 - Creating object files with dependency update</buildLevel>
+        </MakefileSettings>
+        <LocalBuildSettings>
+          <workingDirectory>bin</workingDirectory>
+        </LocalBuildSettings>
+        <NamingCoventions>
+          <enableProjectSpecificSettings>true</enableProjectSpecificSettings>
+          <externalFunction>.*</externalFunction>
+          <localVariable>.*</localVariable>
+          <formalParameter>.*</formalParameter>
+        </NamingCoventions>
+      </ProjectProperties>
+    </Configuration>
+  </Configurations>
+</TITAN_Project_File_Information>

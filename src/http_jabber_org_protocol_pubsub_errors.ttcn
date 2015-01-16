@@ -1,0 +1,309 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          http_jabber_org_protocol_pubsub_errors.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- pubsub#errors.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "http://jabber.org/protocol/pubsub#errors" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//XEP-0060: Publish-Subscribe
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+module http_jabber_org_protocol_pubsub_errors {
+
+
+import from XSD all;
+
+
+/* This namespace is used for error reporting only, as
+      defined in XEP-0060:
+
+      http://xmpp.org/extensions/xep-0060.html */
+
+
+type Empty Closed_node
+with {
+variant "name as 'closed-node'";
+variant "element";
+};
+
+
+type Empty Configuration_required
+with {
+variant "name as 'configuration-required'";
+variant "element";
+};
+
+
+type Empty Invalid_jid
+with {
+variant "name as 'invalid-jid'";
+variant "element";
+};
+
+
+type Empty Invalid_options
+with {
+variant "name as 'invalid-options'";
+variant "element";
+};
+
+
+type Empty Invalid_payload
+with {
+variant "name as 'invalid-payload'";
+variant "element";
+};
+
+
+type Empty Invalid_subid
+with {
+variant "name as 'invalid-subid'";
+variant "element";
+};
+
+
+type Empty Item_forbidden
+with {
+variant "name as 'item-forbidden'";
+variant "element";
+};
+
+
+type Empty Item_required
+with {
+variant "name as 'item-required'";
+variant "element";
+};
+
+
+type Empty Jid_required
+with {
+variant "name as 'jid-required'";
+variant "element";
+};
+
+
+type Empty Max_items_exceeded
+with {
+variant "name as 'max-items-exceeded'";
+variant "element";
+};
+
+
+type Empty Max_nodes_exceeded
+with {
+variant "name as 'max-nodes-exceeded'";
+variant "element";
+};
+
+
+type Empty Nodeid_required
+with {
+variant "name as 'nodeid-required'";
+variant "element";
+};
+
+
+type Empty Not_in_roster_group
+with {
+variant "name as 'not-in-roster-group'";
+variant "element";
+};
+
+
+type Empty Not_subscribed
+with {
+variant "name as 'not-subscribed'";
+variant "element";
+};
+
+
+type Empty Payload_too_big
+with {
+variant "name as 'payload-too-big'";
+variant "element";
+};
+
+
+type Empty Payload_required
+with {
+variant "name as 'payload-required'";
+variant "element";
+};
+
+
+type Empty Pending_subscription
+with {
+variant "name as 'pending-subscription'";
+variant "element";
+};
+
+
+type Empty Presence_subscription_required
+with {
+variant "name as 'presence-subscription-required'";
+variant "element";
+};
+
+
+type Empty Subid_required
+with {
+variant "name as 'subid-required'";
+variant "element";
+};
+
+
+type Empty Too_many_subscriptions
+with {
+variant "name as 'too-many-subscriptions'";
+variant "element";
+};
+
+
+type record Unsupported
+{
+	enumerated {
+		access_authorize,
+		access_open,
+		access_presence,
+		access_roster,
+		access_whitelist,
+		auto_create,
+		auto_subscribe,
+		collections,
+		config_node,
+		create_and_configure,
+		create_nodes,
+		delete_items,
+		delete_nodes,
+		filtered_notifications,
+		get_pending,
+		instant_nodes,
+		item_ids,
+		last_published,
+		leased_subscription,
+		manage_subscriptions,
+		member_affiliation,
+		meta_data,
+		modify_affiliations,
+		multi_collection,
+		multi_subscribe,
+		outcast_affiliation,
+		persistent_items,
+		presence_notifications,
+		presence_subscribe,
+		publish,
+		publish_options,
+		publish_only_affiliation,
+		publisher_affiliation,
+		purge_nodes,
+		retract_items,
+		retrieve_affiliations,
+		retrieve_default,
+		retrieve_items,
+		retrieve_subscriptions,
+		subscribe,
+		subscription_options,
+		subscription_notifications
+	} feature//,
+	//Empty base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (feature) "text 'access_authorize' as 'access-authorize'";
+variant (feature) "text 'access_open' as 'access-open'";
+variant (feature) "text 'access_presence' as 'access-presence'";
+variant (feature) "text 'access_roster' as 'access-roster'";
+variant (feature) "text 'access_whitelist' as 'access-whitelist'";
+variant (feature) "text 'auto_create' as 'auto-create'";
+variant (feature) "text 'auto_subscribe' as 'auto-subscribe'";
+variant (feature) "text 'config_node' as 'config-node'";
+variant (feature) "text 'create_and_configure' as 'create-and-configure'";
+variant (feature) "text 'create_nodes' as 'create-nodes'";
+variant (feature) "text 'delete_items' as 'delete-items'";
+variant (feature) "text 'delete_nodes' as 'delete-nodes'";
+variant (feature) "text 'filtered_notifications' as 'filtered-notifications'";
+variant (feature) "text 'get_pending' as 'get-pending'";
+variant (feature) "text 'instant_nodes' as 'instant-nodes'";
+variant (feature) "text 'item_ids' as 'item-ids'";
+variant (feature) "text 'last_published' as 'last-published'";
+variant (feature) "text 'leased_subscription' as 'leased-subscription'";
+variant (feature) "text 'manage_subscriptions' as 'manage-subscriptions'";
+variant (feature) "text 'member_affiliation' as 'member-affiliation'";
+variant (feature) "text 'meta_data' as 'meta-data'";
+variant (feature) "text 'modify_affiliations' as 'modify-affiliations'";
+variant (feature) "text 'multi_collection' as 'multi-collection'";
+variant (feature) "text 'multi_subscribe' as 'multi-subscribe'";
+variant (feature) "text 'outcast_affiliation' as 'outcast-affiliation'";
+variant (feature) "text 'persistent_items' as 'persistent-items'";
+variant (feature) "text 'presence_notifications' as 'presence-notifications'";
+variant (feature) "text 'presence_subscribe' as 'presence-subscribe'";
+variant (feature) "text 'publish_only_affiliation' as 'publish-only-affiliation'";
+variant (feature) "text 'publish_options' as 'publish-options'";
+variant (feature) "text 'publisher_affiliation' as 'publisher-affiliation'";
+variant (feature) "text 'purge_nodes' as 'purge-nodes'";
+variant (feature) "text 'retract_items' as 'retract-items'";
+variant (feature) "text 'retrieve_affiliations' as 'retrieve-affiliations'";
+variant (feature) "text 'retrieve_default' as 'retrieve-default'";
+variant (feature) "text 'retrieve_items' as 'retrieve-items'";
+variant (feature) "text 'retrieve_subscriptions' as 'retrieve-subscriptions'";
+variant (feature) "text 'subscription_notifications' as 'subscription-notifications'";
+variant (feature) "text 'subscription_options' as 'subscription-options'";
+variant (feature) "attribute";
+//variant (base) "untagged";
+};
+
+
+type Empty Unsupported_access_model
+with {
+variant "name as 'unsupported-access-model'";
+variant "element";
+};
+
+
+type enumerated Empty
+{
+	x
+}
+with {
+variant "text 'x' as ''";
+variant "name as uncapitalized";
+};
+
+
+}
+with {
+encode "XML";
+variant "namespace as 'http://jabber.org/protocol/pubsub#errors'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

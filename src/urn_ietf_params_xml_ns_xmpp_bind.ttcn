@@ -1,0 +1,78 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          urn_ietf_params_xml_ns_xmpp_bind.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- xmpp-bind.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "urn:ietf:params:xml:ns:xmpp-bind" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//RFC-6120:  Extensible Messaging and Presence Protocol (XMPP): Core
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+module urn_ietf_params_xml_ns_xmpp_bind {
+
+
+import from XSD all;
+
+
+type record Bind
+{
+	union {
+		ResourceType resource,
+		FullJIDType jid
+	} choice
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (choice) "untagged";
+};
+
+
+type XSD.String FullJIDType length(8 .. 3071)
+with {
+variant "name as uncapitalized";
+};
+
+
+type XSD.String ResourceType length(1 .. 1023)
+with {
+variant "name as uncapitalized";
+};
+
+
+}
+with {
+encode "XML";
+variant "namespace as 'urn:ietf:params:xml:ns:xmpp-bind'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

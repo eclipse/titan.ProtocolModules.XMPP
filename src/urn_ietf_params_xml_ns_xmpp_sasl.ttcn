@@ -1,0 +1,166 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          urn_ietf_params_xml_ns_xmpp_sasl.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- xmpp-sasl.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "urn:ietf:params:xml:ns:xmpp-sasl" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//RFC-6120:  Extensible Messaging and Presence Protocol (XMPP): Core
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+module urn_ietf_params_xml_ns_xmpp_sasl {
+
+
+import from XSD all;
+import from http_www_w3_org_XML_1998_namespace all;
+
+type record Mechanisms
+{
+	record length(1 .. infinity) of XSD.NMTOKEN mechanism_list,
+	record of XSD.String elem_list
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (mechanism_list) "untagged";
+variant (mechanism_list[-]) "name as 'mechanism'";
+variant (elem_list) "untagged";
+variant (elem_list[-]) "anyElement except unqualified, 'urn:ietf:params:xml:ns:xmpp-sasl'";
+};
+
+
+type Empty Abort
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type record Auth
+{
+	XSD.NMTOKEN mechanism,
+	XSD.String base
+}
+with {
+variant "namespace as 'urn:ietf:params:xml:ns:xmpp-sasl'  ";
+variant "name as uncapitalized";
+variant "element";
+variant (mechanism) "attribute";
+variant (base) "untagged";
+};
+
+
+type XSD.String Challenge
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type XSD.String Response
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type XSD.String Success
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type record Failure
+{
+	union {
+		Empty aborted,
+		Empty account_disabled,
+		Empty credentials_expired,
+		Empty encryption_required,
+		Empty incorrect_encoding,
+		Empty invalid_authzid,
+		Empty invalid_mechanism,
+		Empty malformed_request,
+		Empty mechanism_too_weak,
+		Empty not_authorized,
+		Empty temporary_auth_failure
+	} choice optional,
+	Text text optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (choice) "untagged";
+variant (choice.account_disabled) "name as 'account-disabled'";
+variant (choice.credentials_expired) "name as 'credentials-expired'";
+variant (choice.encryption_required) "name as 'encryption-required'";
+variant (choice.incorrect_encoding) "name as 'incorrect-encoding'";
+variant (choice.invalid_authzid) "name as 'invalid-authzid'";
+variant (choice.invalid_mechanism) "name as 'invalid-mechanism'";
+variant (choice.malformed_request) "name as 'malformed-request'";
+variant (choice.mechanism_too_weak) "name as 'mechanism-too-weak'";
+variant (choice.not_authorized) "name as 'not-authorized'";
+variant (choice.temporary_auth_failure) "name as 'temporary-auth-failure'";
+};
+
+
+type record Text
+{
+	Lang lang optional,
+	XSD.String base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (lang) "attribute";
+variant (base) "untagged";
+};
+
+
+type enumerated Empty
+{
+	x
+}
+with {
+variant "text 'x' as ''";
+variant "name as uncapitalized";
+};
+
+
+}
+with {
+encode "XML";
+variant "namespace as 'urn:ietf:params:xml:ns:xmpp-sasl'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

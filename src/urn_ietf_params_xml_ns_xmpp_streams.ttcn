@@ -1,0 +1,305 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          urn_ietf_params_xml_ns_xmpp_streams.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- xmpp-streams.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "urn:ietf:params:xml:ns:xmpp-streams" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//RFC-6120:  Extensible Messaging and Presence Protocol (XMPP): Core
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+module urn_ietf_params_xml_ns_xmpp_streams {
+
+import from http_www_w3_org_XML_1998_namespace all;
+import from XSD all;
+
+
+type Empty Bad_format
+with {
+variant "name as 'bad-format'";
+variant "element";
+};
+
+
+type Empty Bad_namespace_prefix
+with {
+variant "name as 'bad-namespace-prefix'";
+variant "element";
+};
+
+
+type Empty Conflict
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type Empty Connection_timeout
+with {
+variant "name as 'connection-timeout'";
+variant "element";
+};
+
+
+type Empty Host_gone
+with {
+variant "name as 'host-gone'";
+variant "element";
+};
+
+
+type Empty Host_unknown
+with {
+variant "name as 'host-unknown'";
+variant "element";
+};
+
+
+type Empty Improper_addressing
+with {
+variant "name as 'improper-addressing'";
+variant "element";
+};
+
+
+type Empty Internal_server_error
+with {
+variant "name as 'internal-server-error'";
+variant "element";
+};
+
+
+type Empty Invalid_from
+with {
+variant "name as 'invalid-from'";
+variant "element";
+};
+
+
+type Empty Invalid_id
+with {
+variant "name as 'invalid-id'";
+variant "element";
+};
+
+
+type Empty Invalid_namespace
+with {
+variant "name as 'invalid-namespace'";
+variant "element";
+};
+
+
+type Empty Invalid_xml
+with {
+variant "name as 'invalid-xml'";
+variant "element";
+};
+
+
+type Empty Not_authorized
+with {
+variant "name as 'not-authorized'";
+variant "element";
+};
+
+
+type Empty Not_well_formed
+with {
+variant "name as 'not-well-formed'";
+variant "element";
+};
+
+
+type Empty Policy_violation
+with {
+variant "name as 'policy-violation'";
+variant "element";
+};
+
+
+type Empty Remote_connection_failed
+with {
+variant "name as 'remote-connection-failed'";
+variant "element";
+};
+
+
+type Empty Reset
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type Empty Resource_constraint
+with {
+variant "name as 'resource-constraint'";
+variant "element";
+};
+
+
+type Empty Restricted_xml
+with {
+variant "name as 'restricted-xml'";
+variant "element";
+};
+
+
+type XSD.String See_other_host
+with {
+variant "name as 'see-other-host'";
+variant "element";
+};
+
+
+type Empty System_shutdown
+with {
+variant "name as 'system-shutdown'";
+variant "element";
+};
+
+
+type Empty Undefined_condition
+with {
+variant "name as 'undefined-condition'";
+variant "element";
+};
+
+
+type Empty Unsupported_encoding
+with {
+variant "name as 'unsupported-encoding'";
+variant "element";
+};
+
+
+type Empty Unsupported_stanza_type
+with {
+variant "name as 'unsupported-stanza-type'";
+variant "element";
+};
+
+
+type Empty Unsupported_version
+with {
+variant "name as 'unsupported-version'";
+variant "element";
+};
+
+
+type union StreamErrorGroup
+{
+	Bad_format bad_format,
+	Bad_namespace_prefix bad_namespace_prefix,
+	Conflict conflict,
+	Connection_timeout connection_timeout,
+	Host_gone host_gone,
+	Host_unknown host_unknown,
+	Improper_addressing improper_addressing,
+	Internal_server_error internal_server_error,
+	Invalid_from invalid_from,
+	Invalid_id invalid_id,
+	Invalid_namespace invalid_namespace,
+	Invalid_xml invalid_xml,
+	Not_authorized not_authorized,
+	Not_well_formed not_well_formed,
+	Policy_violation policy_violation,
+	Remote_connection_failed remote_connection_failed,
+	Reset reset,
+	Resource_constraint resource_constraint,
+	Restricted_xml restricted_xml,
+	See_other_host see_other_host,
+	System_shutdown system_shutdown,
+	Undefined_condition undefined_condition,
+	Unsupported_encoding unsupported_encoding,
+	Unsupported_stanza_type unsupported_stanza_type,
+	Unsupported_version unsupported_version
+}
+with {
+variant "untagged";
+variant (bad_format) "name as 'bad-format'";
+variant (bad_namespace_prefix) "name as 'bad-namespace-prefix'";
+variant (connection_timeout) "name as 'connection-timeout'";
+variant (host_gone) "name as 'host-gone'";
+variant (host_unknown) "name as 'host-unknown'";
+variant (improper_addressing) "name as 'improper-addressing'";
+variant (internal_server_error) "name as 'internal-server-error'";
+variant (invalid_from) "name as 'invalid-from'";
+variant (invalid_id) "name as 'invalid-id'";
+variant (invalid_namespace) "name as 'invalid-namespace'";
+variant (invalid_xml) "name as 'invalid-xml'";
+variant (not_authorized) "name as 'not-authorized'";
+variant (not_well_formed) "name as 'not-well-formed'";
+variant (policy_violation) "name as 'policy-violation'";
+variant (remote_connection_failed) "name as 'remote-connection-failed'";
+variant (resource_constraint) "name as 'resource-constraint'";
+variant (restricted_xml) "name as 'restricted-xml'";
+variant (see_other_host) "name as 'see-other-host'";
+variant (system_shutdown) "name as 'system-shutdown'";
+variant (undefined_condition) "name as 'undefined-condition'";
+variant (unsupported_encoding) "name as 'unsupported-encoding'";
+variant (unsupported_stanza_type) "name as 'unsupported-stanza-type'";
+variant (unsupported_version) "name as 'unsupported-version'";
+};
+
+
+type record Text
+{
+	Lang lang optional,
+	XSD.String base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (lang) "attribute";
+variant (base) "untagged";
+};
+
+
+type enumerated Empty
+{
+	x
+}
+with {
+variant "text 'x' as ''";
+variant "name as uncapitalized";
+};
+
+
+}
+with {
+encode "XML";
+variant "namespace as 'urn:ietf:params:xml:ns:xmpp-streams'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

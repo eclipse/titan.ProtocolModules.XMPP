@@ -1,0 +1,89 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          urn_ietf_params_xml_ns_xmpp_tls.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- xmpp-tls.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "urn:ietf:params:xml:ns:xmpp-tls" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//RFC-6120:  Extensible Messaging and Presence Protocol (XMPP): Core
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+module urn_ietf_params_xml_ns_xmpp_tls {
+
+
+import from XSD all;
+
+
+type record Starttls
+{
+	union {
+		Empty required
+	} choice optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (choice) "untagged";
+};
+
+
+type Empty Proceed
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type Empty Failure
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+type charstring Empty ("");
+/*type enumerated Empty
+{
+	x
+}
+with {
+variant "text 'x' as ''";
+variant "name as uncapitalized";
+};
+*/
+
+}
+with {
+encode "XML";
+variant "namespace as 'urn:ietf:params:xml:ns:xmpp-tls'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

@@ -1,0 +1,232 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          http_jabber_org_protocol_pubsub_owner.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- pubsub#owner.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "http://jabber.org/protocol/pubsub#owner" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//XEP-0060: Publish-Subscribe
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+module http_jabber_org_protocol_pubsub_owner {
+
+
+import from XSD all;
+
+
+import from jabber_x_data all;
+
+
+/* The protocol documented by this schema is defined in
+      XEP-0060: http://xmpp.org/extensions/xep-0060.html */
+
+
+/* http://xmpp.org/schemas/x-data.xsd */
+
+
+type record Pubsub
+{
+	union {
+		Affiliations affiliations,
+		Configure configure,
+		Default default_,
+		Delete delete,
+		Purge purge,
+		Subscriptions subscriptions
+	} choice
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (choice) "untagged";
+variant (choice.default_) "name as 'default'";
+};
+
+
+type record Affiliations
+{
+	XSD.String node,
+	record of Affiliation affiliation_list
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (node) "attribute";
+variant (affiliation_list) "untagged";
+};
+
+
+type record Affiliation
+{
+	enumerated {
+		member,
+		none_,
+		outcast,
+		owner,
+		publisher,
+		publish_only
+	} affiliation,
+	XSD.String jid//,
+	//Empty base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (affiliation) "text 'none_' as 'none'";
+variant (affiliation) "text 'publish_only' as 'publish-only'";
+variant (affiliation) "attribute";
+variant (jid) "attribute";
+//variant (base) "untagged";
+};
+
+
+type record Configure
+{
+	XSD.AnySimpleType node optional,
+	union {
+		X x
+	} choice optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (node) "attribute";
+variant (choice) "untagged";
+variant (choice.x) "namespace as 'jabber:x:data' prefix 'xdata'";
+};
+
+
+type record Default
+{
+	union {
+		X x
+	} choice optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (choice) "untagged";
+variant (choice.x) "namespace as 'jabber:x:data' prefix 'xdata'";
+};
+
+
+type record Delete
+{
+	XSD.String node,
+	Redirect redirect optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (node) "attribute";
+};
+
+
+type record Purge
+{
+	XSD.String node//,
+	//Empty base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (node) "attribute";
+//variant (base) "untagged";
+};
+
+
+type record Redirect
+{
+	XSD.String uri//,
+	//Empty base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (uri) "attribute";
+//variant (base) "untagged";
+};
+
+
+type record Subscriptions
+{
+	XSD.String node,
+	record of Subscription subscription_list
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (node) "attribute";
+variant (subscription_list) "untagged";
+};
+
+
+type record Subscription
+{
+	XSD.String jid,
+	enumerated {
+		none_,
+		pending,
+		subscribed,
+		unconfigured
+	} subscription//,
+	//Empty base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (jid) "attribute";
+variant (subscription) "text 'none_' as 'none'";
+variant (subscription) "attribute";
+//variant (base) "untagged";
+};
+
+
+/* redeclared, same as in x-data.xsd */
+
+
+type enumerated Empty
+{
+	x
+}
+with {
+variant "text 'x' as ''";
+variant "name as uncapitalized";
+};
+
+
+}
+with {
+encode "XML";
+variant "namespace as 'http://jabber.org/protocol/pubsub#owner'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

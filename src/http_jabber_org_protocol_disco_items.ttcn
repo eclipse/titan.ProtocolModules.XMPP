@@ -1,0 +1,103 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          http_jabber_org_protocol_disco_items.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- disco#items.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "http://jabber.org/protocol/disco#items" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//XEP-0030: Service Discovery
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+module http_jabber_org_protocol_disco_items {
+
+
+import from XSD all;
+
+
+/* The protocol documented by this schema is defined in
+      XEP-0030: http://www.xmpp.org/extensions/xep-0030.html */
+
+
+type record Query
+{
+	XSD.String node optional,
+	record {
+		record of Item item_list
+	} sequence optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (node) "attribute";
+variant (sequence) "untagged";
+variant (sequence.item_list) "untagged";
+};
+
+
+type record Item
+{
+	FullJIDType jid,
+	XSD.String name optional,
+	XSD.String node optional//,
+	//Empty base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (jid) "attribute";
+variant (name) "attribute";
+variant (node) "attribute";
+//variant (base) "untagged";
+};
+
+
+type XSD.String FullJIDType length(8 .. 3071)
+with {
+variant "name as uncapitalized";
+};
+
+
+type enumerated Empty
+{
+	x
+}
+with {
+variant "text 'x' as ''";
+variant "name as uncapitalized";
+};
+
+
+}
+with {
+encode "XML";
+variant "namespace as 'http://jabber.org/protocol/disco#items'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

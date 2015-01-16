@@ -1,0 +1,39 @@
+<!--
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:        XMPP_CNL113775.grp
+//  Description: FileGroup file for XMPP Protocol Module
+//  Rev:         R3A
+//  Prodnr:      CNL 113 775
+//
+///////////////////////////////////////////////////////////////////////////////
+-->
+<!DOCTYPE TITAN_GUI_FileGroup_file>
+<File_Group name="XMPP_CNL113775" >
+    <File path="jabber_server.ttcn" />
+    <File path="jabber_client.ttcn" />
+    <File path="http_etherx_jabber_org_streams.ttcn" />
+    <File path="urn_ietf_params_xml_ns_xmpp_bind.ttcn" />
+    <File path="urn_ietf_params_xml_ns_xmpp_sasl.ttcn" />
+    <File path="urn_ietf_params_xml_ns_xmpp_stanzas.ttcn" />
+    <File path="urn_ietf_params_xml_ns_xmpp_streams.ttcn" />
+    <File path="urn_ietf_params_xml_ns_xmpp_tls.ttcn" />
+    <File path="jabber_x_data.ttcn" />
+    <File path="http_jabber_org_protocol_disco_info.ttcn" />	
+    <File path="http_jabber_org_protocol_disco_items.ttcn" />
+    <File path="http_jabber_org_protocol_pubsub.ttcn" />
+    <File path="http_jabber_org_protocol_pubsub_errors.ttcn" />
+    <File path="http_jabber_org_protocol_pubsub_event.ttcn" />	
+    <File path="http_jabber_org_protocol_pubsub_owner.ttcn" />
+    <File path="jabber_iq_auth.ttcn" />
+</File_Group>

@@ -1,0 +1,292 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          urn_ietf_params_xml_ns_xmpp_stanzas.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- stanzaerror.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "urn:ietf:params:xml:ns:xmpp-stanzas" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//RFC-6120:  Extensible Messaging and Presence Protocol (XMPP): Core
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+module urn_ietf_params_xml_ns_xmpp_stanzas {
+
+
+import from XSD all;
+
+
+import from http_www_w3_org_XML_1998_namespace all;
+
+
+/* http://www.w3.org/2001/03/xml.xsd */
+
+
+type Empty Bad_request
+with {
+variant "name as 'bad-request'";
+variant "element";
+};
+
+
+type Empty Conflict
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type Empty Feature_not_implemented
+with {
+variant "name as 'feature-not-implemented'";
+variant "element";
+};
+
+
+type Empty Forbidden
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type XSD.String Gone
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type Empty Internal_server_error
+with {
+variant "name as 'internal-server-error'";
+variant "element";
+};
+
+
+type Empty Item_not_found
+with {
+variant "name as 'item-not-found'";
+variant "element";
+};
+
+
+type Empty Jid_malformed
+with {
+variant "name as 'jid-malformed'";
+variant "element";
+};
+
+
+type Empty Not_acceptable
+with {
+variant "name as 'not-acceptable'";
+variant "element";
+};
+
+
+type Empty Not_allowed
+with {
+variant "name as 'not-allowed'";
+variant "element";
+};
+
+
+type Empty Not_authorized
+with {
+variant "name as 'not-authorized'";
+variant "element";
+};
+
+
+type Empty Payment_required
+with {
+variant "name as 'payment-required'";
+variant "element";
+};
+
+
+type Empty Policy_violation
+with {
+variant "name as 'policy-violation'";
+variant "element";
+};
+
+
+type Empty Recipient_unavailable
+with {
+variant "name as 'recipient-unavailable'";
+variant "element";
+};
+
+
+type XSD.String Redirect
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type Empty Registration_required
+with {
+variant "name as 'registration-required'";
+variant "element";
+};
+
+
+type Empty Remote_server_not_found
+with {
+variant "name as 'remote-server-not-found'";
+variant "element";
+};
+
+
+type Empty Remote_server_timeout
+with {
+variant "name as 'remote-server-timeout'";
+variant "element";
+};
+
+
+type Empty Resource_constraint
+with {
+variant "name as 'resource-constraint'";
+variant "element";
+};
+
+
+type Empty Service_unavailable
+with {
+variant "name as 'service-unavailable'";
+variant "element";
+};
+
+
+type Empty Subscription_required
+with {
+variant "name as 'subscription-required'";
+variant "element";
+};
+
+
+type Empty Undefined_condition
+with {
+variant "name as 'undefined-condition'";
+variant "element";
+};
+
+
+type Empty Unexpected_request
+with {
+variant "name as 'unexpected-request'";
+variant "element";
+};
+
+
+type union StanzaErrorGroup
+{
+	Bad_request bad_request,
+	Conflict conflict,
+	Feature_not_implemented feature_not_implemented,
+	Forbidden forbidden,
+	Gone gone,
+	Internal_server_error internal_server_error,
+	Item_not_found item_not_found,
+	Jid_malformed jid_malformed,
+	Not_acceptable not_acceptable,
+	Not_authorized not_authorized,
+	Not_allowed not_allowed,
+	Payment_required payment_required,
+	Policy_violation policy_violation,
+	Recipient_unavailable recipient_unavailable,
+	Redirect redirect,
+	Registration_required registration_required,
+	Remote_server_not_found remote_server_not_found,
+	Remote_server_timeout remote_server_timeout,
+	Resource_constraint resource_constraint,
+	Service_unavailable service_unavailable,
+	Subscription_required subscription_required,
+	Undefined_condition undefined_condition,
+	Unexpected_request unexpected_request
+}
+with {
+variant "untagged";
+variant (bad_request) "name as 'bad-request'";
+variant (feature_not_implemented) "name as 'feature-not-implemented'";
+variant (internal_server_error) "name as 'internal-server-error'";
+variant (item_not_found) "name as 'item-not-found'";
+variant (jid_malformed) "name as 'jid-malformed'";
+variant (not_acceptable) "name as 'not-acceptable'";
+variant (not_authorized) "name as 'not-authorized'";
+variant (not_allowed) "name as 'not-allowed'";
+variant (payment_required) "name as 'payment-required'";
+variant (policy_violation) "name as 'policy-violation'";
+variant (recipient_unavailable) "name as 'recipient-unavailable'";
+variant (registration_required) "name as 'registration-required'";
+variant (remote_server_not_found) "name as 'remote-server-not-found'";
+variant (remote_server_timeout) "name as 'remote-server-timeout'";
+variant (resource_constraint) "name as 'resource-constraint'";
+variant (service_unavailable) "name as 'service-unavailable'";
+variant (subscription_required) "name as 'subscription-required'";
+variant (undefined_condition) "name as 'undefined-condition'";
+variant (unexpected_request) "name as 'unexpected-request'";
+};
+
+
+type record Text
+{
+	Lang lang optional,
+	XSD.String base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (lang) "attribute";
+variant (base) "untagged";
+};
+
+type charstring Empty ("");
+
+/*
+type enumerated Empty
+{
+	x
+}
+with {
+variant "text 'x' as ''";
+variant "name as uncapitalized";
+};
+
+*/
+}
+with {
+encode "XML";
+variant "namespace as 'urn:ietf:params:xml:ns:xmpp-stanzas' prefix 'err'";
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}

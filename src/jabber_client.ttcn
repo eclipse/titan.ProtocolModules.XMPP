@@ -1,0 +1,293 @@
+/******************************************************************************
+* Copyright (c) 2007, 2014  Ericsson AB
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* which accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html
+*
+* Contributors:
+*   Elemer Lelik - initial implementation and initial documentation
+*   Endre Kulcsar
+******************************************************************************/
+//
+//  File:          jabber_client.ttcn
+//  Description:
+//  References:
+//  Rev:           R3A
+//  Prodnr:        CNL 113 775
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+//	Generated from file(s):
+//
+//	- jabber-client.xsd
+//			/* xml version = "1.0" encoding = "UTF-8" */
+//			/* targetnamespace = "jabber:client" */
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+//RFC-6120:  Extensible Messaging and Presence Protocol (XMPP): Core
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+module jabber_client {
+
+
+import from XSD all;
+
+
+import from urn_ietf_params_xml_ns_xmpp_stanzas all;
+
+
+import from http_www_w3_org_XML_1998_namespace all;
+
+
+/* xmlns:err='urn:ietf:params:xml:ns:xmpp-stanzas' is needed to trick the converter */
+
+
+/* http://xmpp.org/schemas/stanzaerror.xsd */
+
+
+/* http://www.w3.org/2001/03/xml.xsd */
+
+
+type record Message
+{
+	XSD.String from_ optional,
+	XSD.NMTOKEN id optional,
+	Lang lang optional,
+	XSD.String to_ optional,
+	enumerated {
+		chat,
+		error_,
+		groupchat,
+		headline,
+		normal
+	} type_ optional,
+	record of union {
+		Subject subject,
+		Body body,
+		Thread thread
+	} choice_list,
+	record of XSD.String elem_list,
+	Error error_ optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (from_) "name as 'from'";
+variant (from_) "attribute";
+variant (id) "attribute";
+  variant (lang) "attribute";
+    variant (lang) "namespace as 'http://www.w3.org/XML/1998/namespace'" "prefix 'xml'";
+variant (to_) "name as 'to'";
+variant (to_) "attribute";
+variant (type_) "text 'error_' as 'error'";
+variant (type_) "name as 'type'";
+variant (type_) "defaultForEmpty as 'normal'";
+variant (type_) "attribute";
+variant (choice_list) "untagged";
+variant (choice_list[-]) "untagged";
+variant (elem_list) "untagged";
+variant (elem_list[-]) "anyElement except unqualified, 'jabber:client'";
+variant (error_) "name as 'error'";
+};
+
+
+type record Body
+{
+	Lang lang optional,
+	XSD.String base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+  variant (lang) "attribute";
+    variant (lang) "namespace as 'http://www.w3.org/XML/1998/namespace'" "prefix 'xml'";
+variant (base) "untagged";
+};
+
+
+type record Subject
+{
+	Lang lang optional,
+	XSD.String base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+  variant (lang) "attribute";
+    variant (lang) "namespace as 'http://www.w3.org/XML/1998/namespace'" "prefix 'xml'";
+variant (base) "untagged";
+};
+
+
+type record Thread
+{
+	XSD.NMTOKEN parent optional,
+	XSD.NMTOKEN base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (parent) "attribute";
+variant (base) "untagged";
+};
+
+
+type record Presence
+{
+	XSD.String from_ optional,
+	XSD.NMTOKEN id optional,
+	Lang lang optional,
+	XSD.String to_ optional,
+	enumerated {
+		error_,
+		probe,
+		subscribe,
+		subscribed,
+		unavailable,
+		unsubscribe,
+		unsubscribed
+	} type_ optional,
+	record of union {
+		Show show,
+		Status status,
+		Priority priority
+	} choice_list,
+	record of XSD.String elem_list,
+	Error error_ optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (from_) "name as 'from'";
+variant (from_) "attribute";
+variant (id) "attribute";
+  variant (lang) "attribute";
+    variant (lang) "namespace as 'http://www.w3.org/XML/1998/namespace'" "prefix 'xml'";
+variant (to_) "name as 'to'";
+variant (to_) "attribute";
+variant (type_) "text 'error_' as 'error'";
+variant (type_) "name as 'type'";
+variant (type_) "attribute";
+variant (choice_list) "untagged";
+variant (choice_list[-]) "untagged";
+variant (elem_list) "untagged";
+variant (elem_list[-]) "anyElement except unqualified, 'jabber:client'";
+variant (error_) "name as 'error'";
+};
+
+
+type enumerated Show
+{
+	away,
+	chat,
+	dnd,
+	xa
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type record Status
+{
+	Lang lang optional,
+	String1024 base
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+  variant (lang) "attribute";
+    variant (lang) "namespace as 'http://www.w3.org/XML/1998/namespace'" "prefix 'xml'";
+variant (base) "untagged";
+};
+
+
+type XSD.String String1024 length(1 .. 1024)
+with {
+variant "name as uncapitalized";
+};
+
+
+type XSD.Byte Priority
+with {
+variant "name as uncapitalized";
+variant "element";
+};
+
+
+type record Iq
+{
+	XSD.String from_ optional,
+	XSD.NMTOKEN id,
+	Lang lang optional,
+	XSD.String to_ optional,
+	enumerated {
+		error_,
+		get,
+		result,
+		set_
+	} type_,
+	XSD.String elem optional,
+	Error error_ optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (from_) "name as 'from'";
+variant (from_) "attribute";
+variant (id) "attribute";
+  variant (lang) "attribute";
+    variant (lang) "namespace as 'http://www.w3.org/XML/1998/namespace'" "prefix 'xml'";
+variant (to_) "name as 'to'";
+variant (to_) "attribute";
+variant (type_) "text 'error_' as 'error'";
+variant (type_) "text 'set_' as 'set'";
+variant (type_) "name as 'type'";
+variant (type_) "attribute";
+variant (elem) "anyElement except unqualified, 'jabber:client'";
+  variant (error_) "name as 'error'";
+};
+
+
+type record Error
+{
+	XSD.String by optional,
+	enumerated {
+		auth,
+		cancel,
+		continue_,
+		modify,
+		wait
+	} type_,
+	StanzaErrorGroup stanzaErrorGroup,
+	Text text optional
+}
+with {
+variant "name as uncapitalized";
+variant "element";
+variant (by) "attribute";
+variant (type_) "text 'continue_' as 'continue'";
+variant (type_) "name as 'type'";
+variant (type_) "attribute";
+variant (text) "namespace as 'urn:ietf:params:xml:ns:xmpp-stanzas' prefix 'err'";
+};
+
+
+}
+with {
+encode "XML";
+variant "namespace as 'jabber:client'" "prefix 'ns0001'";  
+variant "controlNamespace 'http://www.w3.org/2001/XMLSchema-instance' prefix 'xsi'";
+variant "elementFormQualified";
+}
